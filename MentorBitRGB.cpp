@@ -39,8 +39,8 @@
 /*
     Constructor, se debe indicar el pin al cual se esta conectando el modulo de led RGB
 */
-MentorBitRGB::MentorBitRGB(uint8_t dint_pin):_led_rgb(1, dint_pin, NEO_GRB + NEO_KHZ800){
-    _dint_pin = dint_pin;
+MentorBitRGB::MentorBitRGB(uint8_t dint_pin = 0):_led_rgb(1, dint_pin, NEO_GRB + NEO_KHZ800){
+    _port.gpios[1] = dint_pin;
 }
 
 /*
@@ -76,3 +76,21 @@ void MentorBitRGB::cambiarBrillo(uint8_t brillo){
     _led_rgb.setBrightness(brillo);
 }
 
+void MentorBitRGB::configPort(const Port& port) {
+
+    _port.type = port.type;
+    _port.location = port.location;
+    _port.gpios[0] = port.gpios[0];
+    _port.gpios[1] = port.gpios[1];
+
+    _reiniciarRGB();    
+
+}
+
+void MentorBitRGB::_reiniciarRGB()
+{
+
+    _led_rgb = Adafruit_NeoPixel(1, _port.gpios[1], NEO_GRB + NEO_KHZ800);
+    _led_rgb.begin();
+
+}

@@ -38,22 +38,26 @@
 
 #include <arduino.h>
 #include <Adafruit_NeoPixel.h>
+#include <MentorPort.h>
 
-class MentorBitRGB
+class MentorBitRGB : public MentorPort
 {
 
     public:
 
-        MentorBitRGB(uint8_t dint_pin);
+        MentorBitRGB(uint8_t dint_pin = 0);
         void begin();
         void apagar();
         void cambiarColor(uint8_t rojo, uint8_t verde, uint8_t azul);
         void cambiarBrillo(uint8_t brillo);
+        void configPort(const Port& port) override;
 
     private:
 
-        uint8_t _dint_pin;
+        Port _port;
         Adafruit_NeoPixel _led_rgb;
+
+        void _reiniciarRGB();
 
 };
 
