@@ -55,7 +55,7 @@ El siguiente código inicializa el LED y lo hace cambiar entre rojo, verde y azu
 #include <MentorBitRGB.h>
 
 // Definimos el pin digital al que hemos conectado el módulo.
-#define RGB_PIN 2
+#define RGB_PIN 24
 
 // 2. Creamos un objeto 'miLed' y le indicamos el pin que vamos a usar.
 MentorBitRGB miLed(RGB_PIN);
