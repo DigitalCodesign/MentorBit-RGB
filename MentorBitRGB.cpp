@@ -19,7 +19,7 @@
   Autor: Digital Codesign
   Version: 1.0.0
   Fecha de creación: Septiembre de 2024
-  Fecha de version: Septiembre de 2024
+  Fecha de version: Agosto de 2026
   Repositorio: https://github.com/DigitalCodesign/MentorBit-RGB
   Descripcion:
     Esta libreria esta especificamente diseñada para ser utilizada junto con
@@ -39,7 +39,7 @@
 /*
     Constructor, se debe indicar el pin al cual se esta conectando el modulo de led RGB
 */
-MentorBitRGB::MentorBitRGB(uint8_t dint_pin = 0):_led_rgb(1, dint_pin, NEO_GRB + NEO_KHZ800){
+MentorBitRGB::MentorBitRGB(uint8_t dint_pin):_led_rgb(1, dint_pin, NEO_GRB + NEO_KHZ800){
     _port.gpios[1] = dint_pin;
 }
 

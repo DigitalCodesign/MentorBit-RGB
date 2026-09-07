@@ -19,7 +19,7 @@
   Autor: Digital Codesign
   Version: 1.0.0
   Fecha de creación: Septiembre de 2024
-  Fecha de version: Septiembre de 2024
+  Fecha de version: Agosto de 2026
   Repositorio: https://github.com/DigitalCodesign/MentorBit-RGB
   Descripcion:
     Esta libreria esta especificamente diseñada para ser utilizada junto con
@@ -35,6 +35,8 @@
 
 #ifndef MentorBitRGB_h
 #define MentorBitRGB_h
+
+#error "ERR, El MentorBitRGB no es compatible con la placa Microbit"
 
 #include <arduino.h>
 #include <Adafruit_NeoPixel.h>
