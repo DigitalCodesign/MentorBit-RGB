@@ -36,31 +36,37 @@
 #ifndef MentorBitRGB_h
 #define MentorBitRGB_h
 
-#error "ERR, El MentorBitRGB no es compatible con la placa Microbit"
+    #if defined(_AVR_ATmega2560_) || defined(ARDUINO_AVR_MEGA2560)
 
-#include <arduino.h>
-#include <Adafruit_NeoPixel.h>
-#include <MentorPort.h>
+        #include <arduino.h>
+        #include <Adafruit_NeoPixel.h>
+        #include <MentorPort.h>
 
-class MentorBitRGB : public MentorPort
-{
+        class MentorBitRGB : public MentorPort
+        {
 
-    public:
+            public:
 
-        MentorBitRGB(uint8_t dint_pin = 0);
-        void begin();
-        void apagar();
-        void cambiarColor(uint8_t rojo, uint8_t verde, uint8_t azul);
-        void cambiarBrillo(uint8_t brillo);
-        void configPort(const Port& port) override;
+                MentorBitRGB(uint8_t dint_pin = 0);
+                void begin();
+                void apagar();
+                void cambiarColor(uint8_t rojo, uint8_t verde, uint8_t azul);
+                void cambiarBrillo(uint8_t brillo);
+                void configPort(const Port& port) override;
 
-    private:
+            private:
 
-        Port _port;
-        Adafruit_NeoPixel _led_rgb;
+                Port _port;
+                Adafruit_NeoPixel _led_rgb;
 
-        void _reiniciarRGB();
+                void _reiniciarRGB();
 
-};
+        };
+
+    #elif defined(ARDUINO_BBC_MICROBIT_V2) || defined(ARDUINO_ARCH_NRF5)
+
+        #error "ERR, El MentorBitRGB no es compatible con la placa Microbit"
+
+    #endif
 
 #endif
