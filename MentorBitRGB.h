@@ -17,9 +17,9 @@
 
 
   Autor: Digital Codesign
-  Version: 1.0.0
+  Version: 1.0.4
   Fecha de creación: Septiembre de 2024
-  Fecha de version: Agosto de 2026
+  Fecha de version: Octubre de 2026
   Repositorio: https://github.com/DigitalCodesign/MentorBit-RGB
   Descripcion:
     Esta libreria esta especificamente diseñada para ser utilizada junto con
